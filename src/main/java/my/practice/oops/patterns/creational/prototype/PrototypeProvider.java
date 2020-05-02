@@ -24,7 +24,6 @@ public class PrototypeProvider {
 
     public IceCream getPrototype(Flavor flavor) throws CloneNotSupportedException {
         IceCream iceCream = MAP.get(flavor);
-        System.out.println(iceCream);
         return (Objects.isNull(iceCream) ? null : (IceCream) iceCream.clone());
     }
 }
