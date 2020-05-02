@@ -1,6 +1,7 @@
 package my.practice.oops.patterns.creational.prototype;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -8,10 +9,16 @@ import org.junit.Test;
  */
 public class PrototypeTest {
 
+    private PrototypeProvider prototypeProvider;
+
+    @Before
+    public void setUp() throws Exception {
+        this.prototypeProvider = new PrototypeProvider();
+    }
+
     @Test
     public void prototypeChocolate_Test() throws CloneNotSupportedException {
-        PrototypeProvider provider = new PrototypeProvider();
-        IceCream iceCream = provider.getPrototype(Flavor.CHOCOLATE);
+        IceCream iceCream = this.prototypeProvider.getPrototype(Flavor.CHOCOLATE);
         Assert.assertEquals(
                 iceCream.getFlavor(),
                 Flavor.CHOCOLATE
@@ -20,8 +27,7 @@ public class PrototypeTest {
 
     @Test
     public void prototypeVanilla_Test() throws CloneNotSupportedException {
-        PrototypeProvider provider = new PrototypeProvider();
-        IceCream iceCream = provider.getPrototype(Flavor.VANILLA);
+        IceCream iceCream = this.prototypeProvider.getPrototype(Flavor.VANILLA);
         Assert.assertEquals(
                 iceCream.getFlavor(),
                 Flavor.VANILLA
@@ -30,8 +36,7 @@ public class PrototypeTest {
 
     @Test
     public void prototypeMix_Test() throws CloneNotSupportedException {
-        PrototypeProvider provider = new PrototypeProvider();
-        IceCream iceCream = provider.getPrototype(Flavor.MIX);
+        IceCream iceCream = this.prototypeProvider.getPrototype(Flavor.MIX);
         Assert.assertEquals(
                 iceCream.getFlavor(),
                 Flavor.MIX
